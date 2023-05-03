@@ -1,0 +1,8 @@
+package br.com.incidisfy.controller.payload;
+
+public class ArquivoPayload {
+
+	private String arquivo;
+	private int tamanho;
+	private String extensao;
+}

@@ -1,0 +1,12 @@
+# Maven
+FROM maven:3-jdk-11
+ADD . /incidisfy-backend-categoria
+WORKDIR /incidisfy-backend-categoria
+
+RUN mvn clean install
+
+# Java App
+FROM openjdk:11-jdk
+VOLUME /tmp
+COPY --from=0 "/incidisfy-backend-categoria/target/incidisfy-backend-categoria-*.jar" app.jar
+CMD [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]

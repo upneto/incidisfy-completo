@@ -1,0 +1,28 @@
+##########################
+##						##
+## 		Servicos 		##
+##						##
+##########################
+
+token.origin=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVWxpc3NlcyBQZXJlaXJhIGRhIFNpbHZhIE5ldG8ifQ.6jajHq1NfjcmNpDzxFLDyYH1vZhF_katAHU-8DecrCg
+
+## AWS
+P.url.backend.login=
+P.url.backend.categoria=http://localhost:8081/
+P.url.backend.cliente=http://localhost:8082/
+P.url.backend.produto=http://localhost:8083/
+P.url.backend.reclamacao=http://localhost:8084/
+
+## Docker
+L.url.backend.login=
+L.url.backend.categoria=http://localhost:8081/
+L.url.backend.cliente=http://localhost:8082/
+L.url.backend.produto=http://localhost:8083/
+L.url.backend.reclamacao=http://localhost:8084/
+
+## localhost
+D.url.backend.login=
+D.url.backend.categoria=http://localhost:8081/
+D.url.backend.cliente=http://localhost:8082/
+D.url.backend.produto=http://localhost:8083/
+D.url.backend.reclamacao=http://localhost:8084/

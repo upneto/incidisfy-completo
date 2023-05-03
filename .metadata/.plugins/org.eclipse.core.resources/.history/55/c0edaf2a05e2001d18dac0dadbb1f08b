@@ -1,0 +1,5 @@
+package br.com.incidisfy.resources.mq;
+
+public class MessageSender {
+
+}

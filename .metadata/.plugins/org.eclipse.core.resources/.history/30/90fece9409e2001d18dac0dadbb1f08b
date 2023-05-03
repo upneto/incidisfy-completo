@@ -1,0 +1,46 @@
+package br.com.incidisfy.resources.mq;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.stereotype.Service;
+
+import com.amazonaws.services.sqs.AmazonSQSAsync;
+
+import io.awspring.cloud.messaging.core.QueueMessageChannel;
+
+@Service
+public class MessageSender {
+
+	@Value("${spring.messages.queue.name}")
+	private String queueName;
+
+	@Autowired
+	private AmazonSQSAsync amazonSqs;
+
+	@Autowired
+	public MessageSender(final AmazonSQSAsync amazonSQSAsync) {
+		this.amazonSqs = amazonSQSAsync;
+	}
+
+	/**
+	 * Sender
+	 * @param messagePayload
+	 * @return
+	 */
+	public boolean send(final String messagePayload) {
+		MessageChannel messageChannel = new QueueMessageChannel(this.amazonSqs, this.queueName);
+
+		Message<String> message = MessageBuilder.withPayload(messagePayload)
+				.setHeader("sender", "app1")
+				.setHeaderIfAbsent("country", "AE")
+				.build();
+
+		long waitTimeoutMillis = 5000;
+		boolean sentStatus = messageChannel.send(message, waitTimeoutMillis);
+		return sentStatus;
+	}
+
+}

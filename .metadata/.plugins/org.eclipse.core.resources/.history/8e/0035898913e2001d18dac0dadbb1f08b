@@ -1,0 +1,23 @@
+package br.com.incidisfy.service.model;
+
+import java.math.BigInteger;
+import java.util.Date;
+
+import br.com.incidisfy.persistence.model.Anexo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Message {
+
+	private String codigoReclamacao;
+	private String message;
+	private String destinatario;
+}

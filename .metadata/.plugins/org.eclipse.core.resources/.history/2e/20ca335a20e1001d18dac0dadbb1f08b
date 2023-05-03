@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  db_categoria:
+    image: mysql:latest
+    container_name: db_categoria
+    restart: unless-stopped
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    networks:
+      - incidisfy-bridge
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+
+  app_categoria:
+    image: incidisfy-backend/app_categoria:1.0
+    container_name: app_categoria
+    restart: on-failure
+    depends_on:
+      - db_categoria
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8083:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db_categoria:3306/mysql
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update      
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=com.mysql.jdbc.Driver
+    networks:
+      - incidisfy-bridge
+
+networks:
+  incidisfy-bridge:
+    driver: bridge
+
+volumes:
+  db:

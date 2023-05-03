@@ -1,0 +1,11 @@
+package br.com.incidisfy.resources.mq;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class MessageSender {
+	
+	
+	private String QUEUE_NAME; 
+    
+}

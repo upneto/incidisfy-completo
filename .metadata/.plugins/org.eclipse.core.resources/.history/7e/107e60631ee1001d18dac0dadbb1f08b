@@ -1,0 +1,28 @@
+version: "3.9"
+services:  
+  app_categoria:
+    image: fmba-backend/app_categoria:1.0
+    container_name: app_veiculo
+    restart: on-failure
+    depends_on:
+      - db_veiculo
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8083:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db_veiculo:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update      
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+    networks:
+      - fmba-bridge
+
+networks:
+  fmba-bridge:
+    driver: bridge
+
+volumes:
+  db:

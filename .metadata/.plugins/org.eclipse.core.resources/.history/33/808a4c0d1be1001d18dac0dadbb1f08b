@@ -1,0 +1,92 @@
+package br.com.incidisfy.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.incidisfy.controller.payload.CategoriaPayload;
+import br.com.incidisfy.persistence.dao.CategoriaRepository;
+import br.com.incidisfy.persistence.model.Categoria;
+import br.com.incidisfy.resources.exception.DaoException;
+
+@Service
+public class VeiculoService {
+
+	@Autowired
+	private CategoriaRepository repository;
+
+	public CategoriaPayload find(long id) throws DaoException {
+		try {
+			Categoria veiculo = this.repository.findById(id).get();			
+			return CategoriaPayload.builder()
+					.id(veiculo.getId())
+					.dataCriacao(veiculo.getDataCriacao())
+					.informacao(veiculo.getInformacao())
+					.marca(veiculo.getMarca())
+					.modelo(veiculo.getModelo())
+					.placa(veiculo.getPlaca())
+					.build();						
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+	}
+
+	public List<CategoriaPayload> findAll() throws DaoException {
+		List<CategoriaPayload> veiculos = new ArrayList<CategoriaPayload>();
+		try {
+			List<Categoria> findAll = this.repository.findAll();
+			findAll.stream().forEach(veiculo -> {
+				veiculos.add(CategoriaPayload.builder()
+						.id(veiculo.getId())
+						.dataCriacao(veiculo.getDataCriacao())
+						.informacao(veiculo.getInformacao())
+						.marca(veiculo.getMarca())
+						.modelo(veiculo.getModelo())
+						.placa(veiculo.getPlaca())
+						.build());
+			});
+			return veiculos;
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+	}
+
+	public void insert(CategoriaPayload veiculo) throws DaoException {
+		try {
+			this.repository.save(Categoria.builder()
+					.dataCriacao(veiculo.getDataCriacao())
+					.informacao(veiculo.getInformacao())
+					.marca(veiculo.getMarca())
+					.modelo(veiculo.getModelo())
+					.placa(veiculo.getPlaca())
+					.build());
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+	}
+
+	public void update(CategoriaPayload veiculo) throws DaoException {
+		try {
+			this.repository.save(Categoria.builder()
+					.id(veiculo.getId())
+					.dataCriacao(veiculo.getDataCriacao())
+					.informacao(veiculo.getInformacao())
+					.marca(veiculo.getMarca())
+					.modelo(veiculo.getModelo())
+					.placa(veiculo.getPlaca())
+					.build());
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+	}
+
+	public void delete(long id) throws DaoException {
+		try {
+			this.repository.deleteById(id);
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+	}
+}

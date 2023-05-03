@@ -1,0 +1,13 @@
+1682275530014	Extract local variable 'build'
+1682276251664	Copy compilation unit
+1682276629789	Rename type 'MessageSender'
+1682276645891	Copy compilation unit
+1682276649782	Delete element
+1682277220793	Rename resource 'Veiculo Local.launch'
+1682277663112	Extract method 'send'
+1682279127588	Rename type 'ReclamacaoMessageSender'
+1682279135844	Copy compilation unit
+1682279189003	Copy compilation unit
+1682281873421	Rename type 'Cliente'
+1682281891669	Rename type 'Message'
+1682282026516	Copy compilation units

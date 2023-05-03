@@ -1,0 +1,34 @@
+package br.com.incidisfy.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.incidisfy.controller.payload.CategoriaPayload;
+import br.com.incidisfy.persistence.dao.CategoriaRepository;
+import br.com.incidisfy.persistence.model.Categoria;
+import br.com.incidisfy.resources.exception.DaoException;
+
+@Service
+public class CategoriaService {
+
+	@Autowired
+	private CategoriaRepository repository;
+
+	public List<CategoriaPayload> findAll() throws DaoException {
+		List<CategoriaPayload> categorias = new ArrayList<CategoriaPayload>();
+		try {
+			List<Categoria> result = this.repository.findAll();
+			result.stream().forEach(categoria -> {
+				categorias.add(CategoriaPayload.builder()
+						
+						.build());
+			});
+			return categorias;
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+	}
+}

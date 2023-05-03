@@ -1,0 +1,9 @@
+package br.com.incidisfy.persistence.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.incidisfy.persistence.model.Veiculo;
+
+public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
+
+}
