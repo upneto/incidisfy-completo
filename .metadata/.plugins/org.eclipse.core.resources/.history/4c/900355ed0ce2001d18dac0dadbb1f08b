@@ -1,5 +1,0 @@
-package br.com.incidisfy.controller.payload;
-
-public class ArquivoPayload {
-
-}

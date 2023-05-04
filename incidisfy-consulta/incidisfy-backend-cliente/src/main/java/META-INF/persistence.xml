@@ -8,8 +8,6 @@
 		<class>br.com.incidisfy.persistence.model.Cliente</class>
 		<class>br.com.incidisfy.persistence.model.Contato</class>
 		<class>br.com.incidisfy.persistence.model.Endereco</class>
-		<class>br.com.incidisfy.persistence.model.TipoContato</class>
-		<class>br.com.incidisfy.persistence.model.TipoPessoa</class>
 		
 	</persistence-unit>
 </persistence>

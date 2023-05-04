@@ -93,7 +93,7 @@ export abstract class AbstractPages {
     const TOKEN = this.getStorageItem('JWT_TOKEN');
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://incidisfy-frontend-web.herokuapp.com',
+      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
       'JWT_TOKEN': TOKEN
     });

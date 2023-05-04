@@ -54,8 +54,8 @@ public class CategoriaController {
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
     })
 	@PostMapping(produces="application/json", consumes="application/json")
-	public ResponseEntity<?> insert(@RequestBody CategoriaRequest request) throws DaoException {
-		this.service.insert(request);
+	public ResponseEntity<?> insert(@RequestBody CategoriaRequest categoria) throws DaoException {
+		this.service.insert(categoria);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

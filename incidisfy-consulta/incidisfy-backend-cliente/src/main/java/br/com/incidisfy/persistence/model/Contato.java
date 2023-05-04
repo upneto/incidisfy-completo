@@ -1,9 +1,7 @@
 package br.com.incidisfy.persistence.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,14 +35,7 @@ public class Contato implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 
-	@Column(name="data_criacao")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCriacao;
-
 	private String descricao;
-
-	@Column(name="tipo_contato_id")
-	private int tipoContatoId;
 
 	@ManyToOne
 	@JoinColumn(name="cliente_contato_id")

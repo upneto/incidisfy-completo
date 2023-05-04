@@ -54,8 +54,8 @@ public class ClienteController {
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
     })
 	@PostMapping(produces="application/json", consumes="application/json")
-	public ResponseEntity<?> insert(@RequestBody ClientePayload pessoa) throws DaoException {
-		this.service.insert(pessoa);
+	public ResponseEntity<?> insert(@RequestBody ClientePayload cliente) throws DaoException {
+		this.service.insert(cliente);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

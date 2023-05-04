@@ -1,0 +1,12 @@
+#inputDescricao {
+  height: 100px;
+  max-lines: 10;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.float-right {
+  float: right;
+}

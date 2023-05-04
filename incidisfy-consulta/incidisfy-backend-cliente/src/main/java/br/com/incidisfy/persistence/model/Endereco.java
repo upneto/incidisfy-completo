@@ -51,10 +51,6 @@ public class Endereco implements Serializable {
 
 	private String complemento;
 
-	@Column(name="data_criacao")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCriacao;
-
 	private String estado;
 
 	private String numero;

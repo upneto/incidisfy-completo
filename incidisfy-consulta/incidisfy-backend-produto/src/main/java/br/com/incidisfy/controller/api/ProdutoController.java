@@ -54,8 +54,8 @@ public class ProdutoController {
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
     })
 	@PostMapping(produces="application/json", consumes="application/json")
-	public ResponseEntity<?> insert(@RequestBody ProdutoPayload pessoa) throws DaoException {
-		this.service.insert(pessoa);
+	public ResponseEntity<?> insert(@RequestBody ProdutoPayload produto) throws DaoException {
+		this.service.insert(produto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -65,8 +65,8 @@ public class ProdutoController {
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
     })
 	@PutMapping(produces="application/json", consumes="application/json")
-	public ResponseEntity<?> update(@RequestBody ProdutoPayload pessoa) throws DaoException {
-		this.service.update(pessoa);
+	public ResponseEntity<?> update(@RequestBody ProdutoPayload produto) throws DaoException {
+		this.service.update(produto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

@@ -6,8 +6,10 @@ export const environment = {
   base: URL_BASE,
   api: {
     login: URL_BASE + '/login',
-    ordemServico: URL_BASE + '/api/ordem_servico',
-    veiculo: URL_BASE + '/api/veiculo',
-    cliente: URL_BASE + '/api/cliente'
+    categoria: URL_BASE + '/api/categoria',
+    cliente: URL_BASE + '/api/cliente',
+    produto: URL_BASE + '/api/produto',
+    reclamacao: URL_BASE + '/api/reclamacao',
+    anexo: URL_BASE + '/api/anexo'
   }
 }

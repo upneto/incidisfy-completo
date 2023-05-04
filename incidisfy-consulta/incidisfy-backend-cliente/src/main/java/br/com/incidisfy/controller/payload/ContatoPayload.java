@@ -1,9 +1,5 @@
 package br.com.incidisfy.controller.payload;
 
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,10 +19,7 @@ import lombok.Setter;
 public class ContatoPayload {
 
 	private Long id;
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date dataCriacao;
 	private String descricao;
-	private int tipoContato;
 	private Long cliente;
 
 }

@@ -1,10 +1,7 @@
 package br.com.incidisfy.controller.payload;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.incidisfy.persistence.model.Contato;
 import br.com.incidisfy.persistence.model.Endereco;
@@ -22,12 +19,9 @@ import lombok.Setter;
 public class ClientePayload {
 
 	private Long documento;
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date dataCriacao;
 	private String informacao;
 	private String nome;
 	private String nomeRazaoSocial;
-	private int tipoPessoa;
 	private List<ContatoPayload> contatos;
 	private List<EnderecoPayload> enderecos;
 	
@@ -38,9 +32,7 @@ public class ClientePayload {
 				this.contatos.add(ContatoPayload.builder()
 						.id(contato.getId())
 						.cliente(contato.getCliente().getDocumento())
-						.dataCriacao(contato.getDataCriacao())
 						.descricao(contato.getDescricao())
-						.tipoContato(contato.getTipoContatoId())						
 						.build());
 			}
 		}
@@ -61,7 +53,6 @@ public class ClientePayload {
 						.pais(endereco.getPais())
 						.cep(endereco.getCep())
 						.cliente(endereco.getCliente().getDocumento())
-						.dataCriacao(endereco.getDataCriacao())
 						.build());
 			}
 		}

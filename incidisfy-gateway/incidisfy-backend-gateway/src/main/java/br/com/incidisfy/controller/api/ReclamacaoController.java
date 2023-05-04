@@ -27,7 +27,7 @@ public class ReclamacaoController {
 	@Autowired
 	private ReclamacaoService service;
 	
-	@ApiOperation(value = "Pesquisa todos os Veiculos")
+	@ApiOperation(value = "Pesquisa todas as reclamações")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retorna lista de Veiculos"),
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
@@ -37,7 +37,7 @@ public class ReclamacaoController {
 		return new ResponseEntity<>(this.service.findAll(), HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "Pesquisa Veiculo por ID")
+	@ApiOperation(value = "Pesquisa reclamação por ID")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retorna Veiculo"),
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
@@ -47,7 +47,7 @@ public class ReclamacaoController {
 		return new ResponseEntity<>(this.service.findBy(id), HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "Altera Veiculo")
+	@ApiOperation(value = "Altera reclamação")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Alterou Veiculo com sucesso"),
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),

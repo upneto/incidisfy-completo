@@ -1,20 +1,26 @@
+import { Login } from 'src/app/models/login';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 /** Components */
 import { PageLoginComponent } from './pages/page-login/page-login.component';
-import { PageListaOrdemServicoComponent } from './pages/page-lista-ordem-servico/page-lista-ordem-servico.component';
-import { PageDetalhaOrdemServicoComponent } from './pages/page-detalha-ordem-servico/page-detalha-ordem-servico.component';
-import { PageNovaOrdemServicoComponent } from './pages/page-nova-ordem-servico/page-nova-ordem-servico.component';
-import { PageExternalComponent } from './pages/page-external/page-external.component';
+import { PageAberturaReclamacaoComponent } from './pages/page-abertura-reclamacao/page-abertura-reclamacao.component';
+import { PageAnexoReclamacaoComponent } from './pages/page-anexo-reclamacao/page-anexo-reclamacao.component';
+import { PageListaReclamacaoComponent } from './pages/page-lista-reclamacao/page-lista-reclamacao.component';
+
+export class PathRouter {
+	static login: string = 'login';
+  static abertura: string = 'abertura';
+  static anexo: string = 'anexo';
+  static lista: string = 'lista';
+}
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: PageLoginComponent },
-  { path: 'lista-ordem-servico', component: PageListaOrdemServicoComponent },
-  { path: 'detalhe-ordem-servico', component: PageDetalhaOrdemServicoComponent },
-  { path: 'nova-ordem-servico', component: PageNovaOrdemServicoComponent },
-  { path: 'external-page', component: PageExternalComponent }
+  { path: PathRouter.login, component: PageLoginComponent },
+  { path: PathRouter.abertura, component: PageAberturaReclamacaoComponent },
+  { path: PathRouter.anexo, component: PageAnexoReclamacaoComponent },
+  { path: PathRouter.lista, component: PageListaReclamacaoComponent }
 ];
 
 @NgModule({

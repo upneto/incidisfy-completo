@@ -2,7 +2,6 @@ package br.com.incidisfy.persistence.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,12 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import br.com.incidisfy.controller.payload.ContatoPayload;
 import br.com.incidisfy.controller.payload.EnderecoPayload;
@@ -47,20 +42,12 @@ public class Cliente implements Serializable {
 	@Id	
 	private long documento;
 
-	@Column(name="data_criacao")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCriacao;
-
 	private String informacao;
 
 	private String nome;
 
 	@Column(name="nome_razao_social")
 	private String nomeRazaoSocial;
-
-	@ManyToOne
-	@JoinColumn(name="tipo_pessoa_id")
-	private TipoPessoa tipoPessoa;
 
 	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Contato> contatos;
@@ -75,9 +62,7 @@ public class Cliente implements Serializable {
 			for(ContatoPayload contato : contatos) {
 				this.contatos.add(Contato.builder()
 						.cliente(this)
-						.dataCriacao(contato.getDataCriacao())
 						.descricao(contato.getDescricao())
-						.tipoContatoId(contato.getTipoContato())						
 						.build());
 			}
 		}
@@ -97,7 +82,6 @@ public class Cliente implements Serializable {
 						.estado(endereco.getEstado())
 						.pais(endereco.getPais())
 						.cep(endereco.getCep())						
-						.dataCriacao(endereco.getDataCriacao())
 						.build());
 			}
 		}

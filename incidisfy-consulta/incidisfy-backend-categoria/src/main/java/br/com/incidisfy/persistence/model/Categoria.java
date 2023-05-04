@@ -3,6 +3,8 @@ package br.com.incidisfy.persistence.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -33,7 +35,8 @@ public class Categoria implements Serializable {
 	 */
 	private static final long serialVersionUID = 961439410950712375L;
 
-	@Id	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer codigo;
 	private String descricao;
 }

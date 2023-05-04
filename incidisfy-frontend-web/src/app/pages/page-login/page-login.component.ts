@@ -1,13 +1,13 @@
-import { ResponseApp } from 'src/app/models/payloads/ResponseApp';
 import { AlertType } from './../../models/payloads/Alert';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { AbstractPages } from '../AbstractPages';
 
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { PathRouter } from 'src/app/app-routing.module';
 
 @Component({
   selector: 'app-page-login',
@@ -69,7 +69,7 @@ export class PageLoginComponent extends AbstractPages implements OnInit {
           console.log(JSON.stringify(data));
           this.isValid = true;
           super.setStorageItem('JWT_TOKEN', data.token)
-          this.router.navigateByUrl('lista-ordem-servico');
+          this.router.navigateByUrl(PathRouter.abertura);
         }
       },
       error: (error) => {

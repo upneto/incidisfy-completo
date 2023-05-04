@@ -4,7 +4,6 @@ export class Endereco {
 	cep: string = '';
 	cidade: string = '';
 	complemento: string = '';
-	dataCriacao: Date = new Date();
 	estado: string = '';
 	numero: string = '';
 	pais: string = '';

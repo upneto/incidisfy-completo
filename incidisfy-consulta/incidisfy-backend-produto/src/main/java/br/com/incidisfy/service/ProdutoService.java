@@ -22,7 +22,6 @@ public class ProdutoService {
 			Produto veiculo = this.repository.findById(id).get();			
 			return ProdutoPayload.builder()
 					.codigo(veiculo.getCodigo())
-					.dataCriacao(veiculo.getDataCriacao())
 					.descricao(veiculo.getDescricao())
 					.marca(veiculo.getMarca())
 					.modelo(veiculo.getModelo())
@@ -39,7 +38,6 @@ public class ProdutoService {
 			findAll.stream().forEach(veiculo -> {
 				veiculos.add(ProdutoPayload.builder()
 						.codigo(veiculo.getCodigo())
-						.dataCriacao(veiculo.getDataCriacao())
 						.descricao(veiculo.getDescricao())
 						.marca(veiculo.getMarca())
 						.modelo(veiculo.getModelo())
@@ -54,7 +52,6 @@ public class ProdutoService {
 	public void insert(ProdutoPayload veiculo) throws DaoException {
 		try {
 			this.repository.save(Produto.builder()
-					.dataCriacao(veiculo.getDataCriacao())
 					.descricao(veiculo.getDescricao())
 					.marca(veiculo.getMarca())
 					.modelo(veiculo.getModelo())
@@ -68,7 +65,6 @@ public class ProdutoService {
 		try {
 			this.repository.save(Produto.builder()
 					.codigo(veiculo.getCodigo())
-					.dataCriacao(veiculo.getDataCriacao())
 					.descricao(veiculo.getDescricao())
 					.marca(veiculo.getMarca())
 					.modelo(veiculo.getModelo())
