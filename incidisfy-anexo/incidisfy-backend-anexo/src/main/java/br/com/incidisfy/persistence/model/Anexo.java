@@ -3,8 +3,6 @@ package br.com.incidisfy.persistence.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.springframework.data.annotation.Id;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -30,10 +28,9 @@ public class Anexo implements Serializable {
 	 * Serial
 	 */
 	private static final long serialVersionUID = 961439410950712375L;
-
-	@Id
-	private String codigo;	
+		
 	private String codigoReclamacao;
+	private String nomeArquivo;
 	private String arquivo;
 	private Integer tamanho;
 	private String extensao;	

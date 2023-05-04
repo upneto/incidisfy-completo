@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class AnexoPayload {
-
+	
 	private String codigo;
 	private String codigoReclamacao;
 	private ArquivoPayload arquivo;

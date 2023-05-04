@@ -160,6 +160,24 @@ services:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
+
+  app-frontend:
+    image: frontend/front-reclamacao:1.0
+    container_name: front-reclamacao
+    restart: on-failure
+    depends_on:
+      - app-gateway
+    build:
+      context: ./incidisfy-frontend-web
+      dockerfile: Dockerfile-docker
+    ports:
+      - '8080:8080'
+    links:
+      - app-gateway
+    volumes:
+      - .:/app-frontend
+    stdin_open: true
+    tty: true
   
 volumes:
   db_mongo:

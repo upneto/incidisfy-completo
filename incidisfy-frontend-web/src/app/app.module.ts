@@ -27,6 +27,7 @@ import { PageAberturaReclamacaoComponent } from './pages/page-abertura-reclamaca
 import { PageAnexoReclamacaoComponent } from './pages/page-anexo-reclamacao/page-anexo-reclamacao.component';
 import { PageListaReclamacaoComponent } from './pages/page-lista-reclamacao/page-lista-reclamacao.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
     NgbModule,
 
     MatNativeDateModule,

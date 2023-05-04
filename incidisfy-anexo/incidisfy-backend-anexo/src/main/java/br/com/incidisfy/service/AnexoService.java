@@ -23,7 +23,6 @@ public class AnexoService {
 		try {
 			Anexo obj = this.repository.findById(codigo).get();			
 			return AnexoPayload.builder()
-					.codigo(obj.getCodigo())
 					.codigoReclamacao(obj.getCodigoReclamacao())
 					.dataCriacao(obj.getDataCriacao())
 					.arquivo(ArquivoPayload.builder()
@@ -43,7 +42,6 @@ public class AnexoService {
 			List<Anexo> findAll = this.repository.findAll();
 			findAll.stream().forEach(obj -> {
 				veiculos.add(AnexoPayload.builder()
-						.codigo(obj.getCodigo())
 						.codigoReclamacao(obj.getCodigoReclamacao())
 						.dataCriacao(obj.getDataCriacao())
 						.arquivo(ArquivoPayload.builder()

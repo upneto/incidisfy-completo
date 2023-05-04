@@ -7,6 +7,7 @@
     "start": "node server.js",
     "start:local": "ng serve --configuration=local --proxy-config=proxy.config.js",
     "build": "ng build --configuration",
+    "build:docker": "ng build --configuration=docker",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build && npm install -g http-server-spa"

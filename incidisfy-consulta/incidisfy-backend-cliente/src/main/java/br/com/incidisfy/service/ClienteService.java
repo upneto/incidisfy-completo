@@ -17,9 +17,9 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository repository;
 
-	public ClientePayload find(long id) throws DaoException {
+	public ClientePayload find(long documento) throws DaoException {
 		try {
-			Cliente cliente = this.repository.findById(id).get();
+			Cliente cliente = this.repository.findById(documento).get();
 			ClientePayload clientePayload = ClientePayload.builder()
 					.documento(cliente.getDocumento())
 					.informacao(cliente.getInformacao())
@@ -64,6 +64,7 @@ public class ClienteService {
 	public void insert(ClientePayload cliente) throws DaoException {
 		try {
 			Cliente clienteToSave = Cliente.builder()
+					.documento(cliente.getDocumento())
 					.informacao(cliente.getInformacao())
 					.nome(cliente.getNome())
 					.nomeRazaoSocial(cliente.getNomeRazaoSocial())

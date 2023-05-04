@@ -16,7 +16,7 @@ import { PathRouter } from 'src/app/app-routing.module';
 })
 export class PageLoginComponent extends AbstractPages implements OnInit {
 
-  private urlBase = `${environment.api.login}` || 'http://localhost:9080';
+  private urlBase = `${environment.api.login}`;
 
   public formLogin!: FormGroup;
   public isValid: boolean = true;

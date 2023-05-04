@@ -45,6 +45,7 @@ export abstract class AbstractPages {
   @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert!: NgbAlert;
 
   showMessage(message: string, type: string) {
+    console.log('MENSAGEM => ' + message);
     this.alertType = type;
     this.alertSubject.next(message);
   }
@@ -94,7 +95,8 @@ export abstract class AbstractPages {
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
       'JWT_TOKEN': TOKEN
     });
   }
